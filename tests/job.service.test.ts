@@ -1,6 +1,4 @@
-import { describe, it } from "node:test";
-import { createJob, getJobsByType } from "../src/services/job.service"; // This file is not created yet, it's a Test Driven Development (TDD) approach
-
+import { createJob, getJobsByType } from "../src/services/job.service";
 describe("Job Service", () => {
     it("should create a job with status 'pending'", () => {
         const job = createJob("12345", "epub");
@@ -13,7 +11,7 @@ describe("Job Service", () => {
 
     it("should list jobs grouped by status", () => {
         createJob("67890", "pdf"); // We create a random job to group them by status
-        const jobs = getJobsByType("export");
+        const jobs = getJobsByType();
 
         expect(jobs).toHaveProperty("pending");
         expect(jobs).toHaveProperty("finished");
