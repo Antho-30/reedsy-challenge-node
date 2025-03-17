@@ -10,7 +10,7 @@ describe("Job Service", () => {
     });
 
     it("should list jobs grouped by status", () => {
-        createJob("67890", "pdf"); // We create a random job to group them by status
+        createJob("67890", "pdf"); // We create a job to group them by status
         const jobs = getJobsByType();
 
         expect(jobs).toHaveProperty("pending");
