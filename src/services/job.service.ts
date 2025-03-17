@@ -1,46 +1,45 @@
-import { v4 as uuidv4 } from "uuid";
-
-// We're defining the Job interface
-// This is a TypeScript feature that allows us to define the shape of an object
-export interface Job {
-  id: string;
-  bookId: string;
-  type: "epub" | "pdf" | "word" | "wattpad" | "evernote";
-  status: "pending" | "finished";
-  created_at: Date;
-  updated_at: Date;
-}
-
-// This is a simple in-memory storage
-const jobs: Job[] = [];
+import JobModel, { IJob } from "../models/Job";
 
 /**
- * Ceation job with status 'pending'
- * in-memory storage
+ * Creates a new job in the database with status "pending".
+ * Simulates job processing by updating the status after a delay.
  */
-export const createJob = (bookId: string, type: string): Job => {
-  // Create a minimal job object
-  const job: Job = {
-    id: uuidv4(),
+export const createJob = async (bookId: string, type: string): Promise<IJob> => {
+  const newJob = new JobModel({
     bookId,
-    type: type as Job["type"],
+    type,
     status: "pending",
     created_at: new Date(),
     updated_at: new Date(),
-  };
+  });
 
-  // Push the job to the in-memory storage
-  jobs.push(job);
+  const savedJob = await newJob.save();
 
-  return job;
+  // Determine processing time based on job type
+  const processingTime =
+    type === "epub" ? 10000 : type === "pdf" ? 25000 : 60000;
+
+  // Simulate asynchronous processing that will mark the job as "finished"
+  const timer = setTimeout(async () => {
+    savedJob.status = "finished";
+    savedJob.updated_at = new Date();
+    await savedJob.save();
+  }, processingTime);
+
+  // Ensure the timer from the dummy processing time does not block process exit
+  timer.unref();
+
+  return savedJob;
 };
 
 /**
- * Return jobs grouped by status
+ * Retrieves jobs from the database grouped by their status.
  */
-export const getJobsByType = () => {
+export const getJobsByType = async () => {
+  const pendingJobs = await JobModel.find({ status: "pending" });
+  const finishedJobs = await JobModel.find({ status: "finished" });
   return {
-    pending: jobs.filter((job) => job.status === "pending"),
-    finished: jobs.filter((job) => job.status === "finished"),
+    pending: pendingJobs,
+    finished: finishedJobs,
   };
 };
