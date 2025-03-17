@@ -1,7 +1,7 @@
 import { createJob, getJobsByType } from "../src/services/job.service";
 import { connectDB, closeDB } from "../src/config/database";
 
-jest.setTimeout(30000);
+jest.setTimeout(30000); // we set a timeout of 30s to match the dummy processing time job
 
 describe("Job Service with MongoDB", () => {
   beforeAll(async () => {
