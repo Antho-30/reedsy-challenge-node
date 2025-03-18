@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { createJobController } from "../src/controllers/jobs.controller";
+import { createJobController, getExportJobsController, getImportJobsController } from "../src/controllers/jobs.controller";
 import * as jobService from "../src/services/job.service";
 
 describe("Jobs Controller - createJobController", () => {
@@ -52,5 +52,54 @@ describe("Jobs Controller - createJobController", () => {
         status: "pending"
       })
     );
+  });
+});
+
+describe("Jobs Controller - getExportJobsController", () => {
+  it("should return 200 with pending and finished arrays", async () => {
+    const req = {} as Request;
+    const res = {
+      status: jest.fn().mockReturnThis(),
+      json: jest.fn(),
+    } as any as Response;
+
+    // Mock the getJobsByType method to return a pending & and finished objects
+    jest.spyOn(jobService, "getJobsByType").mockResolvedValueOnce({
+      pending: [{ _id: "job1", type: "pdf" }],
+      finished: [{ _id: "job2", type: "epub" }],
+    });
+
+    await getExportJobsController(req, res);
+
+    expect(jobService.getJobsByType).toHaveBeenCalled();
+    expect(res.status).toHaveBeenCalledWith(200);
+    expect(res.json).toHaveBeenCalledWith({
+      pending: [{ _id: "job1", type: "pdf" }],
+      finished: [{ _id: "job2", type: "epub" }],
+    });
+  });
+});
+
+describe("Jobs Controller - getImportJobsController", () => {
+  it("should return 200 with pending and finished arrays", async () => {
+    const req = {} as Request;
+    const res = {
+      status: jest.fn().mockReturnThis(),
+      json: jest.fn(),
+    } as any as Response;
+
+    jest.spyOn(jobService, "getJobsByType").mockResolvedValueOnce({
+      pending: [{ _id: "import1", type: "word" }],
+      finished: [{ _id: "import2", type: "pdf" }],
+    });
+
+    await getImportJobsController(req, res);
+
+    expect(jobService.getJobsByType).toHaveBeenCalled();
+    expect(res.status).toHaveBeenCalledWith(200);
+    expect(res.json).toHaveBeenCalledWith({
+      pending: [{ _id: "import1", type: "word" }],
+      finished: [{ _id: "import2", type: "pdf" }],
+    });
   });
 });
