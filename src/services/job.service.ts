@@ -29,15 +29,20 @@ export const createJob = async (bookId: string, type: string): Promise<IJob> => 
   // Ensure the timer from the dummy processing time does not block process exit
   timer.unref();
 
-  return savedJob;
+  // Convert the saved Mongoose documenty to a plain JavaScript object
+  const plainJob = savedJob.toObject();
+  return plainJob;
 };
 
 /**
- * Retrieves jobs from the database grouped by their status.
+ * Retrieves jobs from the database grouped by their status,
+ * returning plain JavaScript objects.
  */
-export const getJobsByType = async () => {
-  const pendingJobs = await JobModel.find({ status: "pending" });
-  const finishedJobs = await JobModel.find({ status: "finished" });
+export const getJobsByType = async (): Promise<any> => {
+  // 1. Use .lean() to get plain JS objects directly
+  const pendingJobs = await JobModel.find({ status: "pending" }).lean();
+  const finishedJobs = await JobModel.find({ status: "finished" }).lean();
+
   return {
     pending: pendingJobs,
     finished: finishedJobs,
