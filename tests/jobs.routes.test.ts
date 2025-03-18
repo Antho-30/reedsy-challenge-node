@@ -2,11 +2,11 @@ import request from "supertest";
 import app from "../src/server";
 import { closeDB, connectDB } from "../src/config/database";
 
-jest.setTimeout(30000); // Augmente le timeout pour les opérations asynchrones
+jest.setTimeout(30000); // we set a timeout of 30s to match the dummy processing time job
 
 describe("Jobs API", () => {
 
-    // Se connecter à la BDD avant d'exécuter les tests
+    // Connect to the database before running tests
   beforeAll(async () => {
     await connectDB();
   });
