@@ -143,7 +143,7 @@ The differences between two versions are calculated **on-the-fly** using a diff 
 - It simplifies the implementation by not requiring a separate process to manage and update diffs.
 
 > [!WARNING]
-- It may introduce some computational overhead for very large texts, and because we're talkings about Novels, it might take some time.
+It may introduce some computational overhead for very large texts, and because we're talkings about Novels, it might take some time.
 
 With this method, It's only when a user requests to see the changes between two versions, that the system retrieves the full content of both versions and computes the diff dynamically, providing an accurate and up-to-date comparison.
 
