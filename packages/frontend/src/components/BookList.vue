@@ -1,21 +1,23 @@
 <template>
-    <div>
-      <ul v-if="books && books.length">
-        <li v-for="book in books" :key="book.id">
-          {{ book.title }}
-        </li>
-      </ul>
-      <p v-else>No books available</p>
-    </div>
+  <div>
+    <ul v-if="books && books.length">
+      <li v-for="book in books" :key="book.id">
+        <!-- Use of bookItems component -->
+        <BookItem :book="book" />
+      </li>
+    </ul>
+    <p v-else>No books available</p>
+  </div>
 </template>
 
 <script setup lang="ts">
+import { defineProps } from 'vue'
+import BookItem from './BookItem.vue'
+
 defineProps<{
-  books: { id: number; title: string }[];
-}>();
+  books: Array<{ id: number, title: string, author: string, description: string }>
+}>()
 </script>
 
 <style scoped>
-/* Ajoute ici du style si nécessaire */
 </style>
-  
