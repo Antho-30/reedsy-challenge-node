@@ -11,13 +11,7 @@
   
   <script setup lang="ts">
   import { ref, defineProps } from 'vue'
-  
-  interface Book {
-    id: number;
-    title: string;
-    author: string;
-    description: string;
-  }
+  import type { Book } from '../interfaces/Book'
   
   defineProps<{
     book: Book

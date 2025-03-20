@@ -15,6 +15,7 @@ describe('BookItem.vue', () => {
       props: { book }
     })
     expect(wrapper.text()).toContain(book.title)
+    expect(wrapper.text()).toContain(book.author)
     expect(wrapper.text()).not.toContain(book.description)
   })
 
