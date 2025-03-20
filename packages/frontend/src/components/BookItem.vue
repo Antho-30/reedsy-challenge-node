@@ -29,9 +29,12 @@
   
   <style scoped>
   .book-item {
-    border: 1px solid #ccc;
+    display: flex;
+    border: 1px solid gainsboro;
     padding: 1em;
     margin: 0.5em 0;
+    flex-direction: column;
+    align-items: center;
   }
   .toggle-details {
     margin: 0.5em 0;
