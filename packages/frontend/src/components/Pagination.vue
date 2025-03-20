@@ -1,39 +1,59 @@
 <template>
     <div class="pagination">
       <button
-        v-for="page in totalPages"
-        :key="page"
-        class="page-btn"
-        @click="$emit('page-changed', page)"
+        class="pagination-btn"
+        @click="$emit('page-changed', currentPage - 1)"
+        :disabled="currentPage === 1"
       >
-        {{ page }}
+        &lt;
+      </button>
+      <span class="pagination-info">
+        Page {{ currentPage }} of {{ totalPages }}
+      </span>
+      <button
+        class="pagination-btn"
+        @click="$emit('page-changed', currentPage + 1)"
+        :disabled="currentPage === totalPages"
+      >
+        &gt;
       </button>
     </div>
   </template>
   
   <script setup lang="ts">
-  import { computed, defineProps } from 'vue'
+  import { defineProps } from 'vue'
   
-  interface Props {
-    totalItems: number;
-    perPage: number;
+  interface PaginationProps {
+    currentPage: number;
+    totalPages: number;
   }
   
-  const props = defineProps<Props>()
-  
-  const totalPages = computed(() => Math.ceil(props.totalItems / props.perPage))
+  const props = defineProps<PaginationProps>()
   </script>
   
   <style scoped>
   .pagination {
     display: flex;
     gap: 0.5rem;
+    margin-top: 1rem;
+    flex-direction: row;
+    justify-content: center;
   }
-  .page-btn {
-    padding: 0.5rem 1rem;
-    border: 1px solid #ccc;
-    background: #fff;
+  
+  .pagination-btn {
+    border: none;
+    background: transparent;
+    font-size: 1rem;
     cursor: pointer;
+  }
+  
+  .pagination-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+  
+  .pagination-info {
+    font-weight: 500;
   }
   </style>
   

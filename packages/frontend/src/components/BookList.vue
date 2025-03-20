@@ -4,9 +4,10 @@
           <BookItem v-for="book in paginatedBooks" :key="book.id" :book="book" />
     </div>
     <p v-else>No books available</p>
-    <Pagination :totalItems="books.length" 
-                :perPage="perPage" 
-                @page-changed="handlePageChange" 
+    <Pagination
+      :currentPage="currentPage"
+      :totalPages="totalPages"
+      @page-changed="handlePageChange"
     />
   </div>  
 </template>
@@ -22,6 +23,7 @@ const props = defineProps<{books: Book[]  }>()
 // Number of books per page fixed to 5
 const perPage = 5
 const currentPage = ref(1)
+const totalPages = computed(() => Math.ceil(props.books.length / perPage))
 
 // Calculate the list of books to display on the current page
 const paginatedBooks = computed(() => {
