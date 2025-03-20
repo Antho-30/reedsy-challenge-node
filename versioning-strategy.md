@@ -71,6 +71,84 @@ In the hybrid approach, a complete snapshot of the novel is stored at fixed inte
 ### 3.3 In Summary 
 In summary, while the **full snapshot approach** offers simplicity and immediate access to every version, it quickly becomes storage-intensive as the number of versions grows. The **hybrid approach** provides a scalable and balanced solution, combining rapid access to recent versions with significant storage savings for older versions, making it well-suited for a production-grade system managing versioned novels.
 
+## 4. Storage Structure
 
+Each novel is stored as a single document in MongoDB with the following structure:
+- **Current State:**  
+  A field `currentContent` holds the complete, most recent version of the novel for quick retrieval.
+- **Versions Array:**  
+  A field `versions` stores an array of version objects. Each object contains:
+  - `versionNumber`: A sequential number identifying the version.
+  - `content`: Either a full snapshot (if this version is a full snapshot) or a delta representing the changes from the previous version.
+  - `created_at`: The timestamp when this version was recorded.
+- **Metadata:**  
+  Fields such as `title`, `author`, `created_at`, and `updated_at` manage the overall document information.
+
+### 4.2 Snapshot and Delta Strategy
+
+- **Full Snapshot Interval:**  
+  A complete snapshot of the novel is stored every 5 versions.
+- **Delta Storage:**  
+  For versions between full snapshots, only the differences (deltas) from the previous version are stored.
+
+### 4.3 Data Retrieval
+
+- **Current State Access:**  
+  The `currentContent` field allows immediate access to the latest version of the novel.
+- **Historical Access:**  
+  To retrieve a specific historical version, the system locates the nearest preceding full snapshot and applies the sequence of deltas up to the desired version.
+- **Diff Calculation:**  
+  When a user requests the differences between two versions, a diff algorithm (e.g., using `diff-match-patch`) can be applied on the fly to compare the respective version contents.
+
+### 4.4 Example Document in MongoDB
+
+Below is an example JSON representation of a novel stored using the hybrid approach:
+
+```json
+{
+  "_id": "645d5f1234567890abcdef12",
+  "title": "A Fullstack Engineer Challenge",
+  "author": "Anthony M",
+  "currentContent": "The current full text of the novel...",
+  "versions": [
+    {
+      "versionNumber": 1,
+      "content": "Full text of version 1",
+      "created_at": "2025-02-01T12:00:00Z"
+    },
+    {
+      "versionNumber": 2,
+      "content": "Delta from version 1 to version 2",
+      "created_at": "2025-02-12T12:00:00Z"
+    },
+    {
+      "versionNumber": 3,
+      "content": "Delta from version 2 to version 3",
+      "created_at": "2025-03-01T12:00:00Z"
+    },
+    {
+      "versionNumber": 5,
+      "content": "Full snapshot of version 5",
+      "created_at": "2025-03-20T12:00:00Z"
+    }
+  ],
+  "created_at": "2025-02-01T12:00:00Z",
+  "updated_at": "2025-03-20T12:00:00Z"
+}
+```
+
+Note that it's just a illustrative representation of what an actual document could like in MongoDB in my opinion when we have the hybrid approach in mind.
+
+## 5. Managing Differences Between Versions
+
+The differences between two versions are calculated **on-the-fly** using a diff algorithm (e.g `diff-match-patch`). I choose this approach because :
+
+- It avoids the additional storage overhead required for storing precomputed diffs.
+- It simplifies the implementation by not requiring a separate process to manage and update diffs.
+
+### [!WARNING]
+- It may introduce some computational overhead for very large texts, and because we're talkings about Novels, it might take some time.
+
+With this method, It's only when a user requests to see the changes between two versions, that the system retrieves the full content of both versions and computes the diff dynamically, providing an accurate and up-to-date comparison.
 
 
