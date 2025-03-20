@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import { mount } from '@vue/test-utils'
-import BookItem from '@/components/BookItem.vue'
+import BookItem from '../../src/components/BookItem.vue'
 
 describe('BookItem.vue', () => {
   const book = {

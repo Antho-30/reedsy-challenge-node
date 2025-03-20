@@ -1,0 +1,84 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "title": "In Search of Lost Time",
+      "author": "Marcel Proust",
+      "description": "In Search of Lost Time, also translated as Remembrance of Things Past, is a novel in seven parts by Marcel Proust, published from 1913 to 1927. The novel tells the story of Proust's own life as an allegorical search for truth.",
+      "cover": "01.jpg",
+      "rating": "9.9"
+    },
+    {
+      "id": 2,
+      "title": "Don Quixote",
+      "author": "Miguel de Cervantes",
+      "description": "Don Quixote is a middle-aged gentleman from La Mancha who sets out to defend the helpless and destroy the wicked, inspired by chivalrous ideals.",
+      "cover": "02.jpg",
+      "rating": "9.8"
+    },
+    {
+      "id": 3,
+      "title": "Ulysses",
+      "author": "James Joyce",
+      "description": "Ulysses takes place in and around Dublin on a single day, following Stephen Dedalus, Leopold Bloom, and Molly as they mirror the epic journey of Odysseus.",
+      "cover": "03.jpg",
+      "rating": "9.6"
+    },
+    {
+      "id": 4,
+      "title": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "description": "The Great Gatsby, narrated by Nick Carraway, chronicles the mysterious and extravagant life of Jay Gatsby in 1920s Long Island.",
+      "cover": "04.jpg",
+      "rating": "9.3"
+    },
+    {
+      "id": 5,
+      "title": "Moby Dick",
+      "author": "Herman Melville",
+      "description": "Moby Dick tells the tale of Captain Ahab's obsessive quest for revenge against the white whale that destroyed his ship.",
+      "cover": "05.jpg",
+      "rating": "9.1"
+    },
+    {
+      "id": 6,
+      "title": "Hamlet",
+      "author": "William Shakespeare",
+      "description": "Hamlet, Prince of Denmark, returns home to confront corruption and betrayal following the death of his father.",
+      "cover": "06.jpg",
+      "rating": "9.0"
+    },
+    {
+      "id": 7,
+      "title": "War and Peace",
+      "author": "Leo Tolstoy",
+      "description": "War and Peace explores Napoleon’s invasion of Russia and follows several families through love, loss, and the chaos of war.",
+      "cover": "07.jpg",
+      "rating": "8.8"
+    },
+    {
+      "id": 8,
+      "title": "The Odyssey",
+      "author": "Homer",
+      "description": "The Odyssey recounts Odysseus’s perilous journey home after the Trojan War, filled with adventures and divine interventions.",
+      "cover": "08.jpg",
+      "rating": "8.5"
+    },
+    {
+      "id": 9,
+      "title": "One Hundred Years of Solitude",
+      "author": "Gabriel Garcia Marquez",
+      "description": "One Hundred Years of Solitude tells the multi-generational story of the Buendía family in a town where magical realism blends with history.",
+      "cover": "09.jpg",
+      "rating": "8.2"
+    },
+    {
+      "id": 10,
+      "title": "The Divine Comedy",
+      "author": "Dante Alighieri",
+      "description": "The Divine Comedy is an epic poem that guides the reader through Hell, Purgatory, and Heaven, charting the soul’s journey towards God.",
+      "cover": "10.jpg",
+      "rating": "8.1"
+    }
+  ]
+}
