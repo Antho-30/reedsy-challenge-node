@@ -1,4 +1,4 @@
-# Versioning Strategy for Novels
+# Versioning Strategy
 
 ## 1. Introduction
 
@@ -179,7 +179,6 @@ When designing a versioning system specifically for novels, several domain-speci
 
 To me , the best approach is to adress these issues as soon as they're causing troubles, to ensure that the system can evolve to meet the specific needs in a production environment.
 
-> [!IMPORTANT]  
 ## 7. Conclusion
 
 The hybrid approach outlined in this document offers a balanced solution for versioning novels. To me, it enables quick access to the current state of a novel while reducing storage requirements by recording only the deltas between full snapshots taken at fixed intervals. This design meets the following key requirements :
