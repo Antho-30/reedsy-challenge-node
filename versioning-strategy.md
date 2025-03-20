@@ -11,7 +11,7 @@ This document outlines the strategy proposed to store and manage multiple versio
 5. **Discuss trade-offs and mitigations:** Highlight potential compromises and how they can be addressed.
 6. **Consider domain-specific issues:** Address any challenges specific to the management of versioned novels.
 
-In the following sections, I will detail the approaches considered, the chosen solution, and the design of the data structures and APIs that support this versioning strategy.
+In the following sections, I will detail the approaches considered, the chosen solution, and the design of the data structures that support this versioning strategy.
 
 ## 2. Requirements and Challenges
 
@@ -19,25 +19,21 @@ This section outlines the key requirements for a novel versioning system as spec
 
 ### Functional Requirements
 
-- **Current State Access:** - **Historical Access:** - **Diff Display:** 
+- **Current State Access:** / **Historical Access:** / **Diff Display:** 
   It refers to the first 3 points of the Introduction.
   
 ### Non-Functional Requirements and Challenges
 
 - **Disk Space Efficiency:**  
-  Given that novels may have numerous versions over time, the strategy must optimize storage usage. This may involve a choice between full snapshots & others options like showing deltas. For our purpose , I'll choose a hybrid-solution, And I will arbitrarely showcase a Snapshot every X versions. More in-depths details further in the document.
+  Given that novels may have numerous versions over time, the strategy must optimize storage usage. This may involve a choice between full snapshots & others options like showing deltas. For our purpose , I'll choose a hybrid-solution who showcase a Snapshot every X versions. More in-depths details further in the document.
 
 - **Performance vs. Storage Trade-Offs:**  
   - **Full Snapshots:** Provide fast access but can lead to high storage usage.  
   - **Deltas:** Save storage space by only recording changes, but require additional processing to reconstruct a full version.  
-  - **Hybrid Approach:** Aims to balance the two but add some complexity.
+  - **Hybrid Approach:** Aims to balance the two but can add some complexity.
   
 - **Domain-Specific Considerations:**  
-  I see 3 mains considerations to address here : 
-
-  - **Collaborative Editing:** In a real-world scenario, a possibility is that multiple authors edit the same novel, potentially causing conflicts or complex merge scenarios.
-  - **Frequency of Updates:** Highly dynamic novels might generate a large number of versions, influencing the choice of storage strategy.
-  - **Auditability and Legal Requirements:** The system might need to maintain an immutable history of changes for compliance or audit purposes.
+    More in-depth details further in the document
 
 ### Discussion
 
@@ -150,5 +146,48 @@ The differences between two versions are calculated **on-the-fly** using a diff 
 - It may introduce some computational overhead for very large texts, and because we're talkings about Novels, it might take some time.
 
 With this method, It's only when a user requests to see the changes between two versions, that the system retrieves the full content of both versions and computes the diff dynamically, providing an accurate and up-to-date comparison.
+
+## 6. Trade-offs and Potential Issues
+
+The hybrid approach balances fast access with storage efficiency, but it introduces a few trade-offs:
+
+- **Storage vs. Retrieval:**  
+  Like I said at the top of the document, full snapshots offer immediate access but consume more space. The hybrid approach reduces storage needs by using deltas between snapshots, which might slightly slow down the reconstruction of older versions.
+
+- **Implementation Complexity:**  
+  Managing the intervals for full snapshots and the application of deltas adds some complexity compared to a straightforward full snapshot solution.
+
+- **Future Enhancements:**  
+  The strategy is adaptable; further optimizations (like caching or adjusting snapshot frequency) can be implemented as usage patterns evolve.
+
+> [!TIP]
+Overall, while the hybrid approach requires more careful management, its benefits in storage efficiency and scalability make it a more compelling solution in my opinion.
+
+
+## 8. Potential Domain-Specific Issues
+
+When designing a versioning system specifically for novels, several domain-specific challenges should be considered:
+
+- **Collaborative Editing:**  
+  In real-world scenarios, multiple authors or editors may work on the same novel concurrently. This can lead to conflicts that require robust merge strategies and conflict resolution mechanisms, as well as strict audit trails and immutable version histories to ensure accountability.
+
+- **Large Document Handling:**  
+  Novels can be extensive, which means that diff algorithms must efficiently handle large volumes of text. Optimizing performance for both diff calculation and data retrieval is crucial.
+
+- **Compliance and Legal Considerations:**  
+  Depending on the use case, there may be legal or regulatory requirements for maintaining an immutable history of changes. This can impact the storage strategy and the retention policies applied to versioned data.
+
+To me , the best approach is to adress these issues as soon as they're causing troubles, to ensure that the system can evolve to meet the specific needs in a production environment.
+
+> [!IMPORTANT]  
+## 7. Conclusion
+
+The hybrid approach outlined in this document offers a balanced solution for versioning novels. To me, it enables quick access to the current state of a novel while reducing storage requirements by recording only the deltas between full snapshots taken at fixed intervals. This design meets the following key requirements :
+
+- Allowing immediate retrieval of the latest version.
+- Providing access to historical versions.
+- Enabling on-the-fly diff calculation to display changes between versions.
+
+Although this approach introduces a degree of implementation complexity compared to a simple full snapshot strategy, its benefits in terms of storage efficiency and scalability, and I'm sure it make it a strong candidate for a production-grade system. 
 
 
