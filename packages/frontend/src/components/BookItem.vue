@@ -113,7 +113,7 @@ const coverUrl = computed(() => {
 }
 
 .description {
-  grid-column: 2 / span 4;
+  grid-column: 1 / span 5;
   font-size: 0.9rem;
   color: #242424;
   margin-top: 0.5rem;
