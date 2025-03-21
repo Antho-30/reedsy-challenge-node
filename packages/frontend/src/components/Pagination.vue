@@ -33,18 +33,21 @@
   
   <style scoped>
   .pagination {
+    color: black;
     display: flex;
     gap: 0.5rem;
     margin-top: 1rem;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
   }
   
   .pagination-btn {
     border: none;
     background: transparent;
-    font-size: 1rem;
+    font-size: 1.2rem;
     cursor: pointer;
+    color: grey
   }
   
   .pagination-btn:disabled {

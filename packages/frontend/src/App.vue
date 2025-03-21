@@ -1,16 +1,15 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import BookList from './components/BookList.vue'
 import booksData from './data/books.json'
 import type { Book } from './interfaces/Book'
+import BookList from './components/BookList.vue'
 
-// Si le fichier JSON a la structure { "books": [...] }, on extrait le tableau
 const books = ref<Book[]>(booksData.books)
 </script>
 
 <template>
   <div id="app">
-    <h1>Mes Livres Populaires</h1>
+    <p class="title">Most Popular Books of All Time</p>
     <BookList :books="books" />
   </div>
 </template>
@@ -19,5 +18,15 @@ const books = ref<Book[]>(booksData.books)
 #app {
   padding: 2rem;
   font-family: Arial, sans-serif;
+  background-color: whitesmoke;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #242424;
+  margin: 1rem;
+  display: flex;
+  justify-content: start;
 }
 </style>

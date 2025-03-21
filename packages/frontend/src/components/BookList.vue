@@ -1,5 +1,12 @@
 <template>
   <div>
+    
+    <div class="header">
+      <span class="header-title">Title</span>
+      <span class="header-published">Published</span>
+      <span class="header-rating">Rating</span>
+      <span class="header-buy-on">Buy On</span>
+    </div>
     <div v-if="paginatedBooks.length">
           <BookItem v-for="book in paginatedBooks" :key="book.id" :book="book" />
     </div>
@@ -38,4 +45,30 @@ function handlePageChange(page: number) {
 </script>
 
 <style scoped>
+.header {
+  display: grid;
+  grid-template-columns: 1px 3fr 1fr 1fr 1fr;
+  align-items: center;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  font-weight: bold;
+  color: #6c757d;
+  text-transform: uppercase;
+}
+
+.header-published {
+  grid-column: 3 / 4;
+  text-align: center;
+}
+
+.header-rating {
+  grid-column: 4 / 5;
+  text-align: center;
+}
+
+.header-buy-on {
+  grid-column: 5 / 6;
+  text-align: center;
+}
+
 </style>

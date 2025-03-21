@@ -4,81 +4,141 @@
       "id": 1,
       "title": "In Search of Lost Time",
       "author": "Marcel Proust",
-      "description": "In Search of Lost Time, also translated as Remembrance of Things Past, is a novel in seven parts by Marcel Proust, published from 1913 to 1927. The novel tells the story of Proust's own life as an allegorical search for truth.",
+      "description": "In Search of Lost Time, also translated as Remembrance of Things Past, novel in seven parts by Marcel Proust, published in French as À la recherche du temps perdu from 1913 to 1927. The novel is the story of Proust's own life, told as an allegorical search for truth.\nIn Search of Lost Time, also translated as Remembrance of Things Past, novel in seven parts by Marcel Proust, published in French as À la recherche du temps perdu from 1913 to 1927. The novel is the story of Proust's own life, told as an allegorical search for truth.",
       "cover": "01.jpg",
-      "rating": "9.9"
+      "rating": "9.9/10",
+      "published": 1913,
+      "buy": {
+        "amazon": "https://www.amazon.com/in-search-of-lost-time",
+        "iBooks": "https://www.apple.com/ibooks/in-search-of-lost-time",
+        "playStore": "https://play.google.com/store/books/details?id=in_search_of_lost_time"
+      }
     },
     {
       "id": 2,
       "title": "Don Quixote",
       "author": "Miguel de Cervantes",
-      "description": "Don Quixote is a middle-aged gentleman from La Mancha who sets out to defend the helpless and destroy the wicked, inspired by chivalrous ideals.",
+      "description": "Don Quixote is a middle-aged gentleman from the region of La Mancha in central Spain. Obsessed with the chivalrous ideals touted in books he has read, he decides to take up his lance and sword to defend the helpless and destroy the wicked.\nDon Quixote is a middle-aged gentleman from the region of La Mancha in central Spain. Obsessed with the chivalrous ideals touted in books he has read, he decides to take up his lance and sword to defend the helpless and destroy the wicked.",
       "cover": "02.jpg",
-      "rating": "9.8"
+      "rating": "9.8/10",
+      "published": 1605,
+      "buy": {
+        "amazon": "https://www.amazon.com/don-quixote",
+        "iBooks": "https://www.apple.com/ibooks/don-quixote",
+        "playStore": "https://play.google.com/store/books/details?id=don_quixote"
+      }
     },
     {
       "id": 3,
       "title": "Ulysses",
       "author": "James Joyce",
-      "description": "Ulysses takes place in and around Dublin on a single day, following Stephen Dedalus, Leopold Bloom, and Molly as they mirror the epic journey of Odysseus.",
+      "description": "All the action of Ulysses takes place in and immediately around Dublin on a single day (June 16, 1904). The three central characters—Stephen Dedalus (the hero of Joyce’s earlier Portrait of the Artist as a Young Man); Leopold Bloom, a Jewish advertising canvasser; and his wife, Molly—are intended to be modern counterparts of Telemachus, Ulysses (Odysseus), and Penelope, respectively, and the events of the novel loosely parallel the major events in Odysseus’s journey home after the Trojan War.\nAll the action of Ulysses takes place in and immediately around Dublin on a single day (June 16, 1904). The three central characters—Stephen Dedalus (the hero of Joyce’s earlier Portrait of the Artist as a Young Man); Leopold Bloom, a Jewish advertising canvasser; and his wife, Molly—are intended to be modern counterparts of Telemachus, Ulysses (Odysseus), and Penelope, respectively, and the events of the novel loosely parallel the major events in Odysseus’s journey home after the Trojan War.",
       "cover": "03.jpg",
-      "rating": "9.6"
+      "rating": "9.6/10",
+      "published": 1904,
+      "buy": {
+        "amazon": "https://www.amazon.com/ulysses",
+        "iBooks": "https://www.apple.com/ibooks/ulysses",
+        "playStore": "https://play.google.com/store/books/details?id=ulysses"
+      }
     },
     {
       "id": 4,
       "title": "The Great Gatsby",
       "author": "F. Scott Fitzgerald",
-      "description": "The Great Gatsby, narrated by Nick Carraway, chronicles the mysterious and extravagant life of Jay Gatsby in 1920s Long Island.",
+      "description": "The Great Gatsby is a story told by Nick Carraway, who was once Gatsby's neighbor, and he tells the story sometime after 1922, when the incidents that fill the book take place. As the story opens, Nick has just moved from the Midwest to West Egg, Long Island, seeking his fortune as a bond salesman.\nThe Great Gatsby is a story told by Nick Carraway, who was once Gatsby's neighbor, and he tells the story sometime after 1922, when the incidents that fill the book take place. As the story opens, Nick has just moved from the Midwest to West Egg, Long Island, seeking his fortune as a bond salesman.",
       "cover": "04.jpg",
-      "rating": "9.3"
+      "rating": "9.3/10",
+      "published": 1925,
+      "buy": {
+        "amazon": "https://www.amazon.com/the-great-gatsby",
+        "iBooks": "https://www.apple.com/ibooks/the-great-gatsby",
+        "playStore": "https://play.google.com/store/books/details?id=the_great_gatsby"
+      }
     },
     {
       "id": 5,
       "title": "Moby Dick",
       "author": "Herman Melville",
-      "description": "Moby Dick tells the tale of Captain Ahab's obsessive quest for revenge against the white whale that destroyed his ship.",
+      "description": "The sole survivor of a lost whaling ship relates the tale of his captain's self-destructive obsession to hunt the white whale, Moby Dick. This classic story by Herman Melville revolves around Captain Ahab and his obsession with a huge whale, Moby Dick.\nThe sole survivor of a lost whaling ship relates the tale of his captain's self-destructive obsession to hunt the white whale, Moby Dick. This classic story by Herman Melville revolves around Captain Ahab and his obsession with a huge whale, Moby Dick.",
       "cover": "05.jpg",
-      "rating": "9.1"
+      "rating": "9.1/10",
+      "published": 1851,
+      "buy": {
+        "amazon": "https://www.amazon.com/moby-dick",
+        "iBooks": "https://www.apple.com/ibooks/moby-dick",
+        "playStore": "https://play.google.com/store/books/details?id=moby_dick"
+      }
     },
     {
       "id": 6,
       "title": "Hamlet",
       "author": "William Shakespeare",
-      "description": "Hamlet, Prince of Denmark, returns home to confront corruption and betrayal following the death of his father.",
+      "description": "Hamlet, Prince of Denmark, is home from school to mourn the death of his father, King Hamlet, who has died two months earlier. Hamlet is disgusted by the marriage of his newly widowed mother, Queen Gertrude, to his Uncle, King Hamlet's brother, Claudius, who now has the throne.\nHamlet, Prince of Denmark, is home from school to mourn the death of his father, King Hamlet, who has died two months earlier. Hamlet is disgusted by the marriage of his newly widowed mother, Queen Gertrude, to his Uncle, King Hamlet's brother, Claudius, who now has the throne.",
       "cover": "06.jpg",
-      "rating": "9.0"
+      "rating": "9.0/10",
+      "published": 1603,
+      "buy": {
+        "amazon": "https://www.amazon.com/hamlet",
+        "iBooks": "https://www.apple.com/ibooks/hamlet",
+        "playStore": "https://play.google.com/store/books/details?id=hamlet"
+      }
     },
     {
       "id": 7,
       "title": "War and Peace",
       "author": "Leo Tolstoy",
-      "description": "War and Peace explores Napoleon’s invasion of Russia and follows several families through love, loss, and the chaos of war.",
+      "description": "War and Peace broadly focuses on Napoleon’s invasion of Russia in 1812 and follows three of the most well-known characters in literature: Pierre Bezukhov, the illegitimate son of a count who is fighting for his inheritance and yearning for spiritual fulfillment; Prince Andrei Bolkonsky, who leaves his family behind to fight in the war against Napoleon; and Natasha Rostov, the beautiful young daughter of a nobleman who intrigues both men.\nWar and Peace broadly focuses on Napoleon’s invasion of Russia in 1812 and follows three of the most well-known characters in literature: Pierre Bezukhov, the illegitimate son of a count who is fighting for his inheritance and yearning for spiritual fulfillment; Prince Andrei Bolkonsky, who leaves his family behind to fight in the war against Napoleon; and Natasha Rostov, the beautiful young daughter of a nobleman who intrigues both men.",
       "cover": "07.jpg",
-      "rating": "8.8"
+      "rating": "8.8/10",
+      "published": 1869,
+      "buy": {
+        "amazon": "https://www.amazon.com/war-and-peace",
+        "iBooks": "https://www.apple.com/ibooks/war-and-peace",
+        "playStore": "https://play.google.com/store/books/details?id=war_and_peace"
+      }
     },
     {
       "id": 8,
       "title": "The Odyssey",
       "author": "Homer",
-      "description": "The Odyssey recounts Odysseus’s perilous journey home after the Trojan War, filled with adventures and divine interventions.",
+      "description": "With the consent of Zeus, Athena travels to Ithaca to speak with Telemachus. Assuming the form of Odysseus's old friend Mentes, Athena predicts that Odysseus is still alive and that he will soon return to Ithaca. She advises Telemachus to call together the suitors and announce their banishment from his father's estate.\nWith the consent of Zeus, Athena travels to Ithaca to speak with Telemachus. Assuming the form of Odysseus's old friend Mentes, Athena predicts that Odysseus is still alive and that he will soon return to Ithaca. She advises Telemachus to call together the suitors and announce their banishment from his father's estate.",
       "cover": "08.jpg",
-      "rating": "8.5"
+      "rating": "8.5/10",
+      "published": -800,
+      "buy": {
+        "amazon": "https://www.amazon.com/the-odyssey",
+        "iBooks": "https://www.apple.com/ibooks/the-odyssey",
+        "playStore": "https://play.google.com/store/books/details?id=the_odyssey"
+      }
     },
     {
       "id": 9,
       "title": "One Hundred Years of Solitude",
       "author": "Gabriel Garcia Marquez",
-      "description": "One Hundred Years of Solitude tells the multi-generational story of the Buendía family in a town where magical realism blends with history.",
+      "description": "The patriarch of the family, José Arcadio Buendía, is impulsive and inquisitive. He remains a leader who is also deeply solitary, alienating himself from other men in his obsessive investigations into mysterious matters. These character traits are inherited by his descendents throughout the novel.\nThe patriarch of the family, José Arcadio Buendía, is impulsive and inquisitive. He remains a leader who is also deeply solitary, alienating himself from other men in his obsessive investigations into mysterious matters. These character traits are inherited by his descendents throughout the novel.",
       "cover": "09.jpg",
-      "rating": "8.2"
+      "rating": "8.2/10",
+      "published": 1967,
+      "buy": {
+        "amazon": "https://www.amazon.com/one-hundred-years-of-solitude",
+        "iBooks": "https://www.apple.com/ibooks/one-hundred-years-of-solitude",
+        "playStore": "https://play.google.com/store/books/details?id=one_hundred_years_of_solitude"
+      }
     },
     {
       "id": 10,
       "title": "The Divine Comedy",
       "author": "Dante Alighieri",
-      "description": "The Divine Comedy is an epic poem that guides the reader through Hell, Purgatory, and Heaven, charting the soul’s journey towards God.",
+      "description": "In the Divine Comedy poem, Dante is the main character. The plot is set up in 1300, around the time Dante was in exile from his native Florence. The poem is divided into three parts: Inferno, Purgatorio, and Paradiso, charting the soul’s journey towards God.\nIn the Divine Comedy summary, Dante is guided by the Roman poet Virgil through Hell and Purgatory, and by Beatrice through Heaven, ultimately seeking divine illumination and redemption.",
       "cover": "10.jpg",
-      "rating": "8.1"
+      "rating": "8.1/10",
+      "published": 1321,
+      "buy": {
+        "amazon": "https://www.amazon.com/the-divine-comedy",
+        "iBooks": "https://www.apple.com/ibooks/the-divine-comedy",
+        "playStore": "https://play.google.com/store/books/details?id=the_divine_comedy"
+      }
     }
   ]
 }
