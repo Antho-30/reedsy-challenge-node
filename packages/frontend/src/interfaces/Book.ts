@@ -5,7 +5,7 @@ export interface Book {
     description: string;
     cover: string;
     rating: string;
-    published: number; // ex: 1913
+    published: number;
     buy: {
       amazon: string;
       iBooks: string;

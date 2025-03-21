@@ -26,6 +26,7 @@ describe('BookItem.vue', () => {
     const links = wrapper.findAll('a.buy-link')
     expect(links.length).toBe(3)
     expect(links[0].attributes('href')).toBe(book.buy.amazon)
-    // etc.
+    expect(links[1].attributes('href')).toBe(book.buy.iBooks)
+    expect(links[2].attributes('href')).toBe(book.buy.playStore)
   })
 })
