@@ -1,47 +1,70 @@
 <template>
   <div>
-    
     <div class="header">
       <span class="header-title">Title</span>
       <span class="header-published">Published</span>
       <span class="header-rating">Rating</span>
       <span class="header-buy-on">Buy On</span>
     </div>
-    <div v-if="paginatedBooks.length">
-          <BookItem v-for="book in paginatedBooks" :key="book.id" :book="book" />
+
+    <div v-if="isLoading">Loading books...</div>
+    <div v-else-if="error">{{ error }}</div>
+    <div v-else>
+      <div v-if="paginatedBooks.length">
+        <BookItem v-for="book in paginatedBooks" :key="book.id" :book="book" />
+      </div>
+      <p v-else>No books available</p>
     </div>
-    <p v-else>No books available</p>
+
     <Pagination
       :currentPage="currentPage"
       :totalPages="totalPages"
       @page-changed="handlePageChange"
     />
-  </div>  
+  </div>
 </template>
 
 <script setup lang="ts">
-import { computed, defineProps, ref } from 'vue'
-import BookItem from './BookItem.vue'
+import { ref, onMounted, computed } from 'vue';
+import BookItem from './BookItem.vue';
 import Pagination from './Pagination.vue';
+import { fetchBooks } from '../services/BookService';
 import type { Book } from '../interfaces/Book';
 
-const props = defineProps<{books: Book[]  }>()
+const books = ref<Book[]>([]);
+const isLoading = ref(true);
+const error = ref<string | null>(null);
 
-// Number of books per page fixed to 5
-const perPage = 5
-const currentPage = ref(1)
-const totalPages = computed(() => Math.ceil(props.books.length / perPage))
+// Pagination
+const perPage = 5;
+const currentPage = ref(1);
+const totalPages = computed(() => Math.ceil(books.value.length / perPage));
 
-// Calculate the list of books to display on the current page
 const paginatedBooks = computed(() => {
-  const start = (currentPage.value - 1) * perPage
-  return props.books.slice(start, start + perPage)
-})
+  const start = (currentPage.value - 1) * perPage;
+  return books.value.slice(start, start + perPage);
+});
 
-// Update the current page when the user clicks on a page number
-function handlePageChange(page: number) {
-  currentPage.value = page
-}
+const loadBooks = async () => {
+  try {
+    isLoading.value = true;
+    error.value = null;
+    books.value = await fetchBooks();
+  } catch (err) {
+    error.value = 'Failed to load books. Please try again later.';
+  } finally {
+    isLoading.value = false;
+  }
+};
+
+const handlePageChange = (page: number) => {
+  currentPage.value = page;
+};
+
+onMounted(() => {
+  loadBooks();
+});
+
 </script>
 
 <style scoped>
